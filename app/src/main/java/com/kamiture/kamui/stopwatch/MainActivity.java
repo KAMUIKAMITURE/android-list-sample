@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import java.util.ArrayList;
 
+import static com.kamiture.kamui.stopwatch.Utils.loadList;
+import static com.kamiture.kamui.stopwatch.Utils.saveList;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
+
+    // test
 
    CountUp countUp;
    TextView text;
@@ -29,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish(long elapsedTime) {
 
-                editor.putLong("CountLong",elapsedTime);
+                editor.putLong("",elapsedTime);
                 editor.apply();
             }
         });
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
                 String timeString = formatter.format(elapsedTime);
                 text.setText(timeString);
-                Log.d("event", "経過時間: " + timeString);
+
             }
         });
         text = findViewById(R.id.time);
@@ -58,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void record(View v){
         Intent intent = new Intent(this,RecordListActivity.class);
+
         startActivity(intent);
     }
 
