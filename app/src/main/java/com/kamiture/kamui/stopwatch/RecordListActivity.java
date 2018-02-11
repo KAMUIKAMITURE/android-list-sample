@@ -43,8 +43,10 @@ public class RecordListActivity extends AppCompatActivity {
         recordList = loadList(this);
 
 
-        Record record = loadAndParseRecord();
-        recordList.add(record);
+//        Record record = loadAndParseRecord();
+
+//        recordList.add(record);
+        //Log.d("key", String.valueOf((recordList)));
 
         // Adapter に渡す, recordList があればいい.
         // recordList には, これまで保存した全てのデータが入っているはず.
@@ -52,21 +54,21 @@ public class RecordListActivity extends AppCompatActivity {
         adapter = new RecordAdapter(this, android.R.layout.simple_list_item_1, recordList);
         listView.setAdapter(adapter);
 
-        Log.d("MainActivity", listView.toString());
+        //Log.d("MainActivity", listView.toString());
     }
 
-    private Record loadAndParseRecord() {
-        // 保存してある long 型, Date 型 のデータをよみだしてくる TOFIX
-        data = getSharedPreferences("CountResult", MODE_PRIVATE);
-        long elapsedTime = data.getLong("CountLong", 0);
-
-        Calendar rightNow = Calendar.getInstance();
-        Date date = rightNow.getTime();
-
-        return new Record(elapsedTime, date);
-        // これは, Record 型で保存しておいた方がわかりやすくない？
-
-    }
+//    private Record loadAndParseRecord() {
+//        // 保存してある long 型, Date 型 のデータをよみだしてくる TOFIX
+//        data = getSharedPreferences("CountResult", MODE_PRIVATE);
+//        long elapsedTime = data.getLong("CountLong", 0);
+//
+//        Calendar rightNow = Calendar.getInstance();
+//        Date date = rightNow.getTime();
+//
+//        return new Record(elapsedTime, date);
+//        // これは, Record 型で保存しておいた方がわかりやすくない？
+//
+//    }
 
 
 

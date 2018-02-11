@@ -39,7 +39,8 @@ public class RecordAdapter extends ArrayAdapter<Record>{
 
 
         Record item = getItem(position);
-        viewHolder.timeTextView.setText(String.valueOf(item.elapsedTime));
+//        viewHolder.timeTextView.setText(String.valueOf(item.elapsedTime));
+        viewHolder.timeTextView.setText(Utils.formatLongTime(item.elapsedTime));
         viewHolder.dateTextView.setText(String.valueOf(item.date));
         return convertView;
     }

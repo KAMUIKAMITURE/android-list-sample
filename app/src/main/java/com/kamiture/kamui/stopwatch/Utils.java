@@ -7,7 +7,9 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.TimeZone;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -16,6 +18,18 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class Utils {
+
+    public static String formatLongTime(long time) {
+        String timeString = "";
+        // hh: Hour in sm/pm (1-12)
+        // HH: Hour in day (0-23)
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss SSS");
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+        timeString = formatter.format(time);
+        return timeString;
+    }
+
+
 
     public static final String SAVE_KEY = "saved_list";
 
