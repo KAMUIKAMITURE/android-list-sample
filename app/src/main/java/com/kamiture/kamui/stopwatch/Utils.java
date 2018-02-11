@@ -40,6 +40,8 @@ public class Utils {
         String data = pref.getString(SAVE_KEY, "");
 
         arrayList = gson.fromJson(data, new TypeToken<ArrayList<Record>>(){}.getType());
+
+        if (arrayList == null) arrayList = new ArrayList<>();
         return arrayList;
         // Gson が
         // ArrayList<Record> 型の変数を

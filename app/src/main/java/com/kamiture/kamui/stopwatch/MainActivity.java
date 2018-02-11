@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void record(View v){
         Intent intent = new Intent(this,RecordListActivity.class);
-
         startActivity(intent);
     }
 

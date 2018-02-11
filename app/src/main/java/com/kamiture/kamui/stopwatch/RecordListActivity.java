@@ -38,14 +38,13 @@ public class RecordListActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listview);
 
-        loadList(this);
         // ListView に表示する (Adapter に渡す) List をつくる.
 
         recordList = loadList(this);
 
+
         Record record = loadAndParseRecord();
         recordList.add(record);
-        //recordList.add(record);
 
         // Adapter に渡す, recordList があればいい.
         // recordList には, これまで保存した全てのデータが入っているはず.
