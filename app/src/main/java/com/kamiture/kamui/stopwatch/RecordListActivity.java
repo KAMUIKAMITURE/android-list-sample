@@ -41,16 +41,16 @@ public class RecordListActivity extends AppCompatActivity {
         loadList(this);
         // ListView に表示する (Adapter に渡す) List をつくる.
 
-        //recordList = new ArrayList<>();
+        recordList = loadList(this);
 
         Record record = loadAndParseRecord();
-        loadList(this).add(record);
+        recordList.add(record);
         //recordList.add(record);
 
         // Adapter に渡す, recordList があればいい.
         // recordList には, これまで保存した全てのデータが入っているはず.
         // (Context, 表示に使う layout ファイル, 表示させる List型 (もしくは配列))
-        adapter = new RecordAdapter(this, android.R.layout.simple_list_item_1, loadList(this));
+        adapter = new RecordAdapter(this, android.R.layout.simple_list_item_1, recordList);
         listView.setAdapter(adapter);
 
         Log.d("MainActivity", listView.toString());
@@ -75,7 +75,7 @@ public class RecordListActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        saveList(this, loadList(this));
+        saveList(this, recordList);
     }
 }
 
